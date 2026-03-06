@@ -84,6 +84,10 @@ COPY src ./src
 # If we force a different port, deployments can come up but the domain will route elsewhere.
 EXPOSE 8080
 
+RUN mkdir -p /data/.clawdbot/skills
+COPY skills /data/.clawdbot/skills
+
+
 # Ensure PID 1 reaps zombies and forwards signals.
 ENTRYPOINT ["tini", "--"]
 CMD ["node", "src/server.js"]
