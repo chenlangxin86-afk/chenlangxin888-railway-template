@@ -61,7 +61,7 @@ ENV NPM_CONFIG_PREFIX=/data/npm
 ENV NPM_CONFIG_CACHE=/data/npm-cache
 ENV PNPM_HOME=/data/pnpm
 ENV PNPM_STORE_DIR=/data/pnpm-store
-ENV PATH="/data/npm/bin:/data/pnpm:${PATH}"
+ENV PATH="/usr/local/bin:/usr/local/sbin:/data/npm/bin:/data/pnpm:${PATH}"
 
 WORKDIR /app
 
@@ -86,7 +86,6 @@ EXPOSE 8080
 
 RUN mkdir -p /data/.clawdbot/skills
 COPY skills /data/.clawdbot/skills
-
 
 # Ensure PID 1 reaps zombies and forwards signals.
 ENTRYPOINT ["tini", "--"]
